@@ -45,7 +45,9 @@ jobs:
         run: php artisan migrate
         env:
           DB_HOST: 127.0.0.1
+          DB_PORT: 33306
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
           DB_HOST: 127.0.0.1
+          DB_PORT: 33306
         run: vendor/bin/phpunit
