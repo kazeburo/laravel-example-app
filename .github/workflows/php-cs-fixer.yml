@@ -12,7 +12,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.1"
+          php-version: "8.0"
       - name: Prepare
         run: |
           wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O php-cs-fixer
