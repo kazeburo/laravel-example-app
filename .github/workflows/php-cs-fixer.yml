@@ -1,0 +1,21 @@
+name: php-cs-fixer
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  laravel-tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+      - name: Prepare
+        run: |
+          wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O php-cs-fixer
+          chmod a+x php-cs-fixer
+      - name: php-cs-fixer
+        run: php php-cs-fixer fix ./ --dry-run
