@@ -15,7 +15,7 @@ jobs:
           php-version: "8.0"
       - name: Prepare
         run: |
-          wget https://cs.symfony.com/download/php-cs-fixer-v2.phar -O php-cs-fixer
-          chmod a+x php-cs-fixer
+          mkdir --parents tools/php-cs-fixer
+          composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
       - name: php-cs-fixer
-        run: php php-cs-fixer fix ./ --dry-run
+        run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix ./ --dry-run --diff --diff-format=udiff --using-cache=no
